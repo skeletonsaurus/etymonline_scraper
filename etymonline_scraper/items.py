@@ -7,5 +7,7 @@ from scrapy.item import Item, Field
 
 class Etymology(Item):
     # define the fields for your item here like:
-    word = Field()
-    origin = Field()
+    entry_word = Field()
+    entry_link = Field()
+    description_word = Field()
+    description_link = Field()
