@@ -15,7 +15,9 @@ class EtymonlineSpider(CrawlSpider):
         hxs = HtmlXPathSelector(response)
 
         etymology = Etymology()
-        etymology['word'] = hxs.select("//dt/a[1]/text()").extract()
-        etymology['origin'] = hxs.select("//dd//text()").extract()
+        etymology['entry_word'] = hxs.select("//dt/a[1]/text()").extract()
+        etymology['entry_link'] = hxs.select("//dt//a[1]/@href").extract()
+        etymology['description_word'] = hxs.select('//dd/a/text()').extract()
+        etymology['description_link'] = hxs.select('//dd/a/@href').extract()
 
         return etymology
